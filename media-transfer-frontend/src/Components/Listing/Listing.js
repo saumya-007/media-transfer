@@ -5,6 +5,7 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { DirectoryContentListingComponent } from "../DirectoryContentListingComponent/DirectoryContentListingComponent";
 import { PathDisplay } from "../PathDisplay/PathDisplay";
 import { commonApiCongurations } from "../../Assets/ApiReferences";
+import { toast } from "react-toastify";
 
 export const Listing = ({
   directoryPath,
@@ -49,6 +50,7 @@ export const Listing = ({
           }
         });
     } else {
+      toast.error("Folder Name can not be empty")
       console.log({ validaion_error: "Folder Name can not be empty" });
     }
   };
@@ -56,14 +58,13 @@ export const Listing = ({
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       createFolder();
-      console.log("Enter pressed");
     }
     if (e.key === "Escape") {
       toggleShowInput();
     }
   };
 
-  // This code is repeated their has to be a better way - Follow DRY
+  // This code is repeated their has to be a better way - Need to refactor and follow DRY principle
 
   return (
     <div className="listing-wrapper">

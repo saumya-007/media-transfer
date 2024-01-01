@@ -6,7 +6,6 @@ import { Listing } from "../Listing/Listing";
 import { UploadedFileList } from "../UploadedFileList/UploadedFileList";
 import { commonApiCongurations } from "../../Assets/ApiReferences";
 import { ToastContainer, toast } from "react-toastify";
-// import { getRootDirectory } from "./request";
 
 function App() {
   const [directoryPath, setDirectoryPath] = useState("");
@@ -18,7 +17,6 @@ function App() {
   const uploadBtnRef = useRef(null);
 
   useEffect(() => {
-    // const newRes = getRootDirectory();
     fetch(
       `http://${commonApiCongurations.host}:${commonApiCongurations.port}/directory/getRootDirectory`,
       {
@@ -35,7 +33,7 @@ function App() {
           setFixedDirectoryPath(result.data);
         } else {
           console.log({ api_error: result.message });
-          toast(result.message ? result.message : "Api Error !");
+          toast.error(result.message ? result.message : "Api Error !");
         }
       });
   }, []);
@@ -56,12 +54,11 @@ function App() {
       )
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
           if (result.status === "success") {
             setDirectoryContents(result.data);
           } else {
             console.log({ api_error: result.message });
-            toast(result.message ? result.message : "Api Error !");
+            toast.error(result.message ? result.message : "Api Error !");
           }
         });
     }
@@ -77,6 +74,7 @@ function App() {
         formData.append("file", file);
       });
       formData.append("data_stored_at", subFolderPath);
+      console.log({ subFolderPath });
       setUploadLoader(true);
       fetch(
         `http://${commonApiCongurations.host}:${commonApiCongurations.port}/media/upload`,
@@ -89,11 +87,11 @@ function App() {
         .then((result) => {
           if (result.status === "success") {
             setFileList([]);
-            toast(result.data ? result.data : "Done");
+            toast.success(result.data ? result.data : "Done");
             setUploadLoader(false);
           } else {
             console.log({ api_error: result.message });
-            toast(result.message ? result.message : "Api Error !");
+            toast.error(result.message ? result.message : "Api Error !");
             setUploadLoader(false);
           }
         });
@@ -113,19 +111,20 @@ function App() {
       <div className="container-wrapper">
         <ToastContainer
           position="top-center"
-          autoClose={2000}
-          hideProgressBar={false}
+          autoClose={500}
+          hideProgressBar={true}
           newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
           theme="colored"
+          closeButton={false}
+          className="wrapper-text-center" 
         />
         <div className="container">
           <div className="box-wrapper">
-            <DargAndDrop fileList={fileList} setFileList={setFileList}  uploadLoader={uploadLoader}/>
+            <DargAndDrop
+              fileList={fileList}
+              setFileList={setFileList}
+              uploadLoader={uploadLoader}
+            />
           </div>
           <div className="box-wrapper">
             <UploadedFileList fileList={fileList} setFileList={setFileList} />

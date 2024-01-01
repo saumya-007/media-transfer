@@ -3,18 +3,13 @@ const { responseError } = require("../utils/constants");
 
 module.exports.handleFormData = (req, res, next) => {
   const form = new formidable.IncomingForm();
-  console.log({ form });
 
   // Set the maximum total file size to 10GB (in bytes)
-//   form.options.maxFileSize = 10 * 1024 * 1024 * 1024;
+  //  form.options.maxFileSize = 10 * 1024 * 1024 * 1024;
   form.options.maxFields = Infinity;
   form.options.maxFieldsSize = Infinity;
   form.options.maxFileSize = Infinity;
   form.options.maxTotalFileSize = Infinity;
-
-  console.log({ form });
-
-  console.log("maxFileSize:", form.maxFileSize);
 
   form.parse(req, async (err, fields, files) => {
     console.log(
@@ -48,7 +43,6 @@ module.exports.handleFormData = (req, res, next) => {
         req.body[key] = fields[key][0];
       }
     }
-    console.log({ details: files.file });
 
     req.files = files;
     next();

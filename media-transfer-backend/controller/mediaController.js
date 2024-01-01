@@ -9,14 +9,18 @@ module.exports.uploadFile = async function (req, res) {
   try {
     console.log("Upload Started !");
     const location = req.body.data_stored_at;
-    const subFolderPath =
-      location ? "" : location;
+    console.log({ location });
+    const subFolderPath = location ? location : "";
+
     const storageLocation = join(localFolderPath, "/", subFolderPath);
 
     await Promise.all(
       req.files.file.map(async (file) => {
-        if (file.mimetype === 'application/zip') {
-          await decompress(resolve(__dirname, file.filepath), resolve(storageLocation)); 
+        if (file.mimetype === "application/zip") {
+          await decompress(
+            resolve(__dirname, file.filepath),
+            resolve(storageLocation)
+          );
         } else {
           return fs.promises.rename(
             resolve(__dirname, file.filepath),
@@ -82,8 +86,6 @@ module.exports.downloadZip = async function (req, res) {
 
     let downloadDataStream = null;
     if (downloadAsZip) {
-      // Condition for Folder and files with download as zip option true
-
       // Location to which the zip file will be stored Temporarily
       const tempFileStorage = join(__dirname, "../tempStorage", outputName);
       const output = fs.createWriteStream(tempFileStorage);
@@ -92,29 +94,26 @@ module.exports.downloadZip = async function (req, res) {
       if (isFolder) {
         archive.directory(sourcePath, false);
       } else {
-        archive.file(sourcePath, { name: basename(sourcePath) });
+        // archive.file(sourcePath.slice(0,sourcePath.lastIndexOf('.')), { name: basename(sourcePath) }); 
+        // Need to look into it - Issue with this function - currently quick fixed from front end
       }
-      archive.finalize();
-      output.on("close", async () => {
-        // Set headers for the response
-        res.attachment(outputName);
+      await archive.finalize();
 
-        // Send the zip file as the response
-        downloadDataStream = fs.createReadStream(tempFileStorage);
-        downloadDataStream.pipe(res);
 
-        await fs.promises.rm(tempFileStorage, { recursive: true });
-        console.log("Download Completed");
-      });
+      downloadDataStream = fs.createReadStream(tempFileStorage);
+      res.attachment(outputName);
+      res.set("Content-Type", "application/zip");
 
-      // Delete the zip file asynchronously after sending the response
+      downloadDataStream.pipe(res);
+      console.log("Download Completed");
     } else {
       // For Files with download as zip option false
-      downloadDataStream =   fs.createReadStream(sourcePath);
+      downloadDataStream = fs.createReadStream(sourcePath);
       downloadDataStream.pipe(res);
       console.log("Download Completed");
     }
   } catch (err) {
+    console.log(err);
     res.status(400).send({
       ...responseError,
       message: err.message ? err.message : "Error while downloading file",

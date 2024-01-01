@@ -13,7 +13,7 @@ export const ApiCall = async ({ url, method, config }) => {
         });
         return response;
       } catch (err) {
-        toast(err.message ? err.message : defaultErrorMessage);
+        toast.error(err.message ? err.message : defaultErrorMessage);
       }
       break;
     case "POST" || "PUT" || "PATCH":
@@ -26,7 +26,7 @@ export const ApiCall = async ({ url, method, config }) => {
         });
         return response;
       } catch (err) {
-        toast(err.message ? err.message : defaultErrorMessage);
+        toast.error(err.message ? err.message : defaultErrorMessage);
       }
       break;
     case "DELETE":
@@ -38,7 +38,7 @@ export const ApiCall = async ({ url, method, config }) => {
           body: config.body || {},
         });
       } catch (err) {
-        toast(err.message ? err.message : defaultErrorMessage);
+        toast.error(err.message ? err.message : defaultErrorMessage);
       }
       break;
     default:

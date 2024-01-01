@@ -27,10 +27,6 @@
   border-radius: 5px;
 }
 
-.download-btn .disabled{
-  background-color: red;
-}
-
 .download-btn:hover {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: flex;
@@ -40,11 +36,11 @@
   cursor: pointer;
 }
 
-.disabled{
+.disabled-download{
   background-color: rgb(236, 232, 232);
 }
 
-.disabled:hover {
+.disabled-download:hover {
   background-color: rgb(236, 232, 232);
 }
 
