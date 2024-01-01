@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "name": "server-media-tansfer",
+  "description": "This is an application which can be used to upload  and download media from any device to your local storage mainly made to learn more about few core modules of node js and for personal use to transfer media from ISO devices to other devices without icloud.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd media-transfer-backend && npm start\" \"cd media-transfer-frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saumya-007/media-transfer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saumya-007/media-transfer/issues"
+  },
+  "homepage": "https://github.com/saumya-007/media-transfer#readme"
+}
