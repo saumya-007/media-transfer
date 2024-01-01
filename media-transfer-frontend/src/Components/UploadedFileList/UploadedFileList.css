@@ -1,0 +1,10 @@
+.uploaded-file-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 200px;
+  width: 800px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}

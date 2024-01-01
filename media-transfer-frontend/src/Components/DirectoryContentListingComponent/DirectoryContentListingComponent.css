@@ -1,0 +1,62 @@
+.directory-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.directory-content-options {
+  width: 30%;
+  display: flex;
+  gap: 5px;
+}
+
+.directory-content-icon {
+  width: 10%;
+}
+
+.directory-content-name {
+  width: 60%;
+  word-wrap:break-word;
+}
+
+.download-btn {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  background-color: #ffd700;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.download-btn .disabled{
+  background-color: red;
+}
+
+.download-btn:hover {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  background-color: #fbff02;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.disabled{
+  background-color: rgb(236, 232, 232);
+}
+
+.disabled:hover {
+  background-color: rgb(236, 232, 232);
+}
+
+.download-btn span {
+  text-align: center;
+}
+
+.directory-name-wrapper {
+  max-width: fit-content;
+}
+
+.directory-name-wrapper.hoverover {
+  font-weight: 800;
+  cursor: pointer;
+}

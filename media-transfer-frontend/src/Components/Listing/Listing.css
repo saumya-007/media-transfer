@@ -1,0 +1,87 @@
+.listing-wrapper {
+  width: 1290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.listing-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listing-header label{
+  font-size: 14px;
+}
+
+.listing-body {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.path-display {
+  display: flex;
+  width: fit-content;  
+  align-items: center;
+}
+
+.path-display div {
+  display: flex;
+  align-items: end;
+}
+
+.folder-name-input {
+  width: 35%;
+  border: 0px;
+  border-bottom: 5px solid cadetblue;
+  height: 30px;
+  font-size: large;
+}
+
+.folder-name-input:focus {
+  outline-width: 0;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper div{
+  max-width: 50px;
+}
+
+.create-btn-display {
+  width: 20%;
+  background-color: cadetblue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.create-btn-display:hover {
+  background-color: rgb(172, 224, 226);
+  color: black;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icon-padding {
+  padding: 0px 10px 0px 10px;
+}
+
+/* This is repeated their has to be a better way */
+.hoverover {
+  font-weight: 800;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+.drag-n-drop {
+  height: 200px;
+  width: 400px;
+  border-radius: 10px;
+  border: 3px dashed rgb(0, 0, 83);
+  background-color: rgb(242, 248, 248);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hide-btn {
+  opacity: 0;
+  /* border: 1px solid black; */
+  position: absolute;
+  top: 20;
+  left: 20;
+  height: 160px;
+  width: 400px;
+  cursor: pointer;
+}
+
+.drag-n-drop:hover,
+.drag-n-drop.dragover {
+    opacity: 0.6;
+    cursor: pointer;
+}
