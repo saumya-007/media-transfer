@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "punycode": "^2.3.1"
   },
   "name": "server-media-tansfer",
   "description": "This is an application which can be used to upload  and download media from any device to your local storage mainly made to learn more about few core modules of node js and for personal use to transfer media from ISO devices to other devices without icloud.",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./media-transfer-backend/server.js",
