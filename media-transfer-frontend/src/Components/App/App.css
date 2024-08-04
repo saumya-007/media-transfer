@@ -53,6 +53,23 @@ body {
   align-items: center;
 }
 
+@media (max-width: 1370px) {
+  .container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+    width: 93%;
+  }
+
+  .container-wrapper {
+    padding: 0 5px; /* Adjust horizontal padding for smaller screens */
+    margin-top: 0; /* Remove top margin if necessary for small screens */
+  }
+
+  .box-wrapper {
+    width: 100%;
+  }
+}
+
 .upload-btn {
   width: 60%;
   border-radius: 5px;

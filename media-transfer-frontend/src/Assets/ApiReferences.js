@@ -6,31 +6,34 @@ export const commonApiCongurations = {
   port: "4041",
 };
 
+// change this to run on different ports
+const runOnSamePort = true;
+
 export const directoryApis = {
   get_root_directory: {
     method: "GET",
     headers: commonApiCongurations.content_type_json,
-    url: `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/directory/getRootDirectory`,
+    url: runOnSamePort ? '/directory/getRootDirectory' : `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/directory/getRootDirectory`,
   },
   get_directory_contents: {
     method: "GET",
     headers: commonApiCongurations.content_type_json,
-    url: `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/directory/getDirectoryContents`,
+    url: runOnSamePort ? '/directory/getDirectoryContents' : `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/directory/getDirectoryContents`,
   },
   create_directory: {
     method: "POST",
     headers: commonApiCongurations.content_type_json,
-    url: `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/directory/makeDirectory`,
+    url: runOnSamePort ? '/directory/makeDirectory' : `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/directory/makeDirectory`,
   },
 };
 
 export const mediaApis = {
   upload_media: {
     method: "POST",
-    url: `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/media/upload`,
+    url: runOnSamePort ? '/media/upload' : `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/media/upload`,
   },
   download_media: {
     method: "POST",
-    url: `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/media/download`,
+    url: runOnSamePort ? '/media/download' : `http://${commonApiCongurations.localhost}:${commonApiCongurations.port}/media/download`,
   },
 };

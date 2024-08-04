@@ -9,7 +9,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd media-transfer-backend && npm start\" \"cd media-transfer-frontend && npm start\""
+    "start": "node ./media-transfer-backend/server.js",
+    "start-different": "concurrently \"cd media-transfer-backend && npm start\" \"cd media-transfer-frontend && npm start\""
   },
   "repository": {
     "type": "git",

@@ -2,11 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const config = require("./config/config");
 const bodyParser = require('body-parser');
+const path = require('path')
 
 const mediaRoutes = require("./routes/mediaRoutes");
 const directoryRoutes = require("./routes/directoryRoutes");
 
 const app = express();
+app.use(express.static(path.join(__dirname, '../media-transfer-frontend', 'build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json()); 
 app.use(cors());
