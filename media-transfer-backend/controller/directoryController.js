@@ -103,7 +103,13 @@ module.exports.deleteDirectory = async function (req, res) {
 
 module.exports.getRootDirectory = async function (req, res) {
   try {
-    // throw new Error('SWR')
+    try {
+      await promises.access(localFolderPath);
+      console.log('Directory already exists.');
+    } catch (error) {
+      await promises.mkdir(localFolderPath, { recursive: true });
+      console.log('Directory created.');
+    }
     res.status(200).send({
       ...responseSuccess,
       data: localFolderPath,

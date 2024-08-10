@@ -1,5 +1,5 @@
-import React, {  useState } from "react";
-import "./Listing.css";
+import React, { useState } from "react";
+// import "./Listing.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { DirectoryContentListingComponent } from "../DirectoryContentListingComponent/DirectoryContentListingComponent";
@@ -28,7 +28,7 @@ export const Listing = ({
   const createFolder = () => {
     if (folderName.length) {
       fetch(
-        `http://${commonApiCongurations.host}:${commonApiCongurations.port}/directory/makeDirectory`,
+        `/directory/makeDirectory`,
         {
           method: "POST",
           headers: {

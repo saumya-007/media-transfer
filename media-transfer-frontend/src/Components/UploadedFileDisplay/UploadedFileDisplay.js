@@ -1,5 +1,5 @@
 import React from "react";
-import "./UploadedFileDisplay.css";
+// import "./UploadedFileDisplay.css";
 import { fileTypeMapping } from "../../Assets/FileTypeMapping";
 
 export const UploadedFileDisplay = ({ file, fileIndex, removeFile }) => {

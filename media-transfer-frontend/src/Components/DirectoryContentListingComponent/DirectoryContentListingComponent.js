@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./DirectoryContentListingComponent.css";
+// import "./DirectoryContentListingComponent.css";
 import { fileTypeMapping } from "../../Assets/FileTypeMapping";
 import { DownloadBtn } from "../DownloadBtn/DownloadBtn";
 

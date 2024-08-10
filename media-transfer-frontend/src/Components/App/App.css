@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+/* App.css */
 
 * {
   padding: 0;
   margin: 0;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -11,10 +11,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.5;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .container-wrapper {
@@ -25,23 +25,23 @@ body {
   align-items: center;
   gap: 20px;
   justify-content: center;
-  margin-top: 1%;
+  padding: 1%;
 }
 
 .container {
-  width: fit-content;
-  height: fit-content;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .box-wrapper {
-  width: fit-content;
+  width: 100%;
   min-height: 300px;
-  padding: 3% 2% 3% 2%;
+  padding: 3% 2%;
   border-radius: 10px;
   box-shadow: 0 14px 18px rgba(77, 76, 76, 0.1);
   background-color: white;
@@ -53,25 +53,8 @@ body {
   align-items: center;
 }
 
-@media (max-width: 1370px) {
-  .container {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
-    width: 93%;
-  }
-
-  .container-wrapper {
-    padding: 0 5px; /* Adjust horizontal padding for smaller screens */
-    margin-top: 0; /* Remove top margin if necessary for small screens */
-  }
-
-  .box-wrapper {
-    width: 100%;
-  }
-}
-
 .upload-btn {
-  width: 60%;
+  width: 100%;
   border-radius: 5px;
   color: white;
   padding: 10px;
@@ -93,4 +76,180 @@ body {
 
 .wrapper-text-center {
   text-align: center;
+}
+
+/* DirectoryContentListingComponent.css */
+
+.directory-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.directory-content-icon {
+  width: 10%;
+}
+
+.directory-content-name {
+  width: 75%; /* Adjusted to accommodate the cross symbol */
+  word-wrap: break-word;
+}
+
+.directory-content-cross {
+  width: 15%; /* Assuming this is the class for the cross symbol */
+  text-align: right; /* Align the cross symbol to the right */
+}
+
+.directory-content-options {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+
+.download-btn {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  background-color: #ffd700;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background-color: #fbff02;
+  cursor: pointer;
+}
+
+.disabled-download {
+  background-color: rgb(236, 232, 232);
+}
+
+.disabled-download:hover {
+  background-color: rgb(236, 232, 232);
+}
+
+.download-btn span {
+  text-align: center;
+}
+
+.directory-name-wrapper {
+  max-width: fit-content;
+}
+
+.directory-name-wrapper.hoverover {
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* DragAndDrop.css */
+
+.drag-n-drop {
+  height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  border: 3px dashed rgb(0, 0, 83);
+  background-color: rgb(242, 248, 248);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hide-btn {
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 160px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.drag-n-drop:hover,
+.drag-n-drop.dragover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* Listing.css */
+
+.listing-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.listing-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listing-header label {
+  font-size: 14px;
+}
+
+.listing-body {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.path-display {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+}
+
+.path-display div {
+  display: flex;
+  align-items: end;
+}
+
+.folder-name-input {
+  width: 100%;
+  border: 0px;
+  border-bottom: 5px solid cadetblue;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 1370px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .container-wrapper {
+    padding: 0 5px;
+    margin-top: 0;
+  }
+
+  .box-wrapper {
+    width: 100%;
+  }
+
+  .drag-n-drop {
+    width: 100%;
+  }
+}
+
+/* Additional CSS for aligning files and buttons */
+.files-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Adjust as needed */
+  width: 100%;
+}
+
+.file-item {
+  flex: 1; /* Adjust the flex-grow as needed */
+}
+
+.button-item {
+  flex: 1; /* Adjust the flex-grow as needed */
 }

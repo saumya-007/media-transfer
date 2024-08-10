@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `http://${commonApiCongurations.host}:${commonApiCongurations.port}/directory/getRootDirectory`,
+      `/directory/getRootDirectory`,
       {
         method: "GET",
         headers: {
@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     if (directoryPath.length) {
       fetch(
-        `http://${commonApiCongurations.host}:${commonApiCongurations.port}/directory/getDirectoryContents`,
+        `/directory/getDirectoryContents`,
         {
           method: "POST",
           headers: {
@@ -77,7 +77,7 @@ function App() {
       console.log({ subFolderPath });
       setUploadLoader(true);
       fetch(
-        `http://${commonApiCongurations.host}:${commonApiCongurations.port}/media/upload`,
+        `/media/upload`,
         {
           method: "POST",
           body: formData,
@@ -116,7 +116,7 @@ function App() {
           newestOnTop={false}
           theme="colored"
           closeButton={false}
-          className="wrapper-text-center" 
+          className="wrapper-text-center"
         />
         <div className="container">
           <div className="box-wrapper">

@@ -1,5 +1,5 @@
 import React from "react";
-import "./UploadedFileList.css";
+// import "./UploadedFileList.css";
 import { UploadedFileDisplay } from "../UploadedFileDisplay/UploadedFileDisplay";
 
 export const UploadedFileList = ({ fileList, setFileList }) => {

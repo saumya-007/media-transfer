@@ -6,4 +6,6 @@ module.exports.serverConfig = {
   defaultHost: 'http://localhost'
 }
 
-module.exports.localFolderPath = path.join(os.homedir(), 'Downloads');
+// module.exports.localFolderPath = path.join(os.homedir(), 'Downloads');
+
+module.exports.localFolderPath = path.join('D:', 'media-manager', 'root');

@@ -15,7 +15,7 @@ export const DownloadBtn = ({ btnText, downloadAsZip, contentName, directoryPath
     setIsDownloading(true);
 
     fetch(
-      `http://${commonApiCongurations.host}:${commonApiCongurations.port}/media/download`,
+      `/media/download`,
       {
         method: "POST",
         headers: {
@@ -28,7 +28,7 @@ export const DownloadBtn = ({ btnText, downloadAsZip, contentName, directoryPath
       }
     )
       .then((response) => {
-        console.log({response})
+        console.log({ response })
         return response.blob();
       })
       .then((blob) => {
